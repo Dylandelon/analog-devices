@@ -1,3 +1,8 @@
+/**
+ * mqtt消息订阅类
+ * @au zdl
+ *
+ */
 package cn.enncloud.iot.analogdevices.process;
 
 import lombok.extern.slf4j.Slf4j;

@@ -7,9 +7,10 @@ enn:
     #    host: tcp://10.39.6.194:1883
     publisher: samplePublisher
     # todo
-    consumer: dampleConsumerprod2
+    consumer: dampleConsumerprod3
     # 默认的接收主题，可以订阅多个Topic，逗号分隔
 #    topic: $share/group1/allInOne1
+#    topic: test/dynamic_data
     topic: allInOne1
     username: admin1
     password: iotpro1

@@ -1,3 +1,8 @@
+/**
+ * mqtt消息订阅与发布类
+ * @au zdl
+ *
+ */
 package cn.enncloud.iot.analogdevices.configuration;
 
 
@@ -25,6 +30,7 @@ import org.springframework.messaging.MessagingException;
 import org.springframework.util.StringUtils;
 
 import java.util.Optional;
+
 
 @Slf4j
 @Configuration
@@ -94,6 +100,13 @@ public class MqttConfig {
             public void handleMessage(Message<?> message) throws MessagingException {
                 Optional optional = Optional.ofNullable(message.getPayload());
                 if(optional.isPresent()){
+                    // 可以根据不通的topic分配不通的处理类，实际工作中无产品关系的topic建议再起另外的服务处理
+//                    String receivedTopic = message.getHeaders().get("mqtt_receivedTopic").toString();
+//                    if(receivedTopic.equalsIgnoreCase("topica")){
+//                        messageProcessA.doProcess(message);
+//                    }else if(receivedTopic.equalsIgnoreCase("topicB")){
+//                        messageProcessB.doProcess(message);
+//                    }
                     messageProcess.doProcess(message);
                 }else{
                     log.info("my"+message.getHeaders());

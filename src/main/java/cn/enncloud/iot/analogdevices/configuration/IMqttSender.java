@@ -1,3 +1,8 @@
+/**
+ * mqtt消息发布
+ * @au zdl
+ *
+ */
 package cn.enncloud.iot.analogdevices.configuration;
 
 import org.springframework.integration.annotation.MessagingGateway;
@@ -12,7 +17,7 @@ public interface IMqttSender {
 
     /**
      * 发送信息到MQTT服务器
-     *
+     * @au zdl
      * @param data 发送的文本
      */
     void sendToMqtt(String data);

@@ -1,3 +1,8 @@
+/**
+ * 消息对外服务类
+ * @au zdl
+ *
+ */
 package cn.enncloud.iot.analogdevices.controller;
 
 
