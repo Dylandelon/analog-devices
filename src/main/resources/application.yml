@@ -1,0 +1,40 @@
+enn:
+  baseDir: ~/data/iot/${spring.application.name}
+  mqtt:
+    # 推送信息的连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:61613,tcp://192.168.1.61:61613
+    host: tcp://10.39.6.194:1883
+#    host: tcp://10.39.10.189:1883
+    #    host: tcp://10.39.6.194:1883
+    publisher: samplePublisher
+    # todo
+    consumer: dampleConsumerprod2
+    # 默认的接收主题，可以订阅多个Topic，逗号分隔
+#    topic: $share/group1/allInOne1
+    topic: allInOne1
+    username: admin1
+    password: iotpro1
+    timeout: 5000
+    qos: 2
+    cleanSession: false
+spring:
+  application:
+    name: iot-analog-devices-service
+
+logging:
+  file: ${enn.baseDir}/logs/${spring.application.name}.log
+  file.max-size: 10MB
+  file.max-history: 15
+  level:
+    root: INFO
+
+server:
+  port: 8810
+  #Use behind a front-end proxy server
+  use-forward-headers: true
+  tomcat:
+    uri-encoding: UTF-8
+    # 存放Tomcat的日志、Dump等文件的临时文件夹，默认为系统的tmp文件夹（如：C:%users\Shanhy\AppData\Local\Temp）
+    basedir: ${enn.baseDir}/tomcat
+    accesslog:
+      enabled: true
+      pattern: '%h %l %u [%{yyyy-MM-dd HH:mm:ss}t] %{X-Real-IP}i "%r" %s %b %D'
